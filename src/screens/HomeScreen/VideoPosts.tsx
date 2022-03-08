@@ -33,9 +33,10 @@ interface VideoProps {
     Images:string[]
   },
   index:number,
-  currentItem:number|null
+  currentItem:number|null,
+  focus:boolean
 }
-const VideoPosts: FC<VideoProps> = ({ item,currentItem,index }) => {
+const VideoPosts: FC<VideoProps> = ({ item,currentItem,index,focus }) => {
   const [play,setPlay]= useState(false)
   const [mute,setMute] = useState(false)
   const [status,setStatus] = useState<any>()
@@ -49,25 +50,26 @@ const VideoPosts: FC<VideoProps> = ({ item,currentItem,index }) => {
     };
   useEffect(()=>{
 
-    if(currentItem===index){
+    if(currentItem===index&&focus){
       videoRef.current?.playAsync()
     }else{
       videoRef.current?.pauseAsync();
     }
    
-  },[currentItem,index])
+  },[currentItem,index,focus])
   const onPlaybackStatusUpdate =(status:any)=>{
      setStatus(status);
   }
   return (
     <View style={styles.container}>
       <PostHeader item={item} />
-      <View style={{ flex: 1, backgroundColor: "#000" }}>
+      <View style={{backgroundColor:"#000",flex:1 }}>
         <Video
+          volume={5}
           isMuted={mute}
           ref={videoRef}
           isLooping
-          style={{ height: "100%", width }}
+          style={{ height:"100%", width }}
           source={{
             uri: item.video,
           }}
@@ -79,9 +81,9 @@ const VideoPosts: FC<VideoProps> = ({ item,currentItem,index }) => {
           style={{
             position: "absolute",
             bottom: 20,
-            borderRadius: 10,
-            height: 20,
-            width: 20,
+            borderRadius: 12,
+            height: 24,
+            width: 24,
             backgroundColor: "#fff",
             right: 20,
             alignItems: "center",
@@ -90,7 +92,7 @@ const VideoPosts: FC<VideoProps> = ({ item,currentItem,index }) => {
         >
           <Feather
             name={mute ? "volume-x" : "volume-2"}
-            size={10}
+            size={14}
             color="black"
           />
         </TouchableOpacity>
@@ -108,7 +110,7 @@ const VideoPosts: FC<VideoProps> = ({ item,currentItem,index }) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: height * 0.6,
+    height: height * 0.7,
   },
 });
 

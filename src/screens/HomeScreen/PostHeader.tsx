@@ -23,7 +23,7 @@ const PostHeader:FC<PostHeaderProps> = ({item})=>{
       <View style={{ flexDirection: "row" }}>
         <View>
           <Image
-            resizeMode={"contain"}
+        
             style={styles.headImage}
             source={{ uri: item.userImage }}
           />
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     height: 30,
     width: 30,
     borderRadius: 15,
+    
   },
 });
 export default PostHeader;

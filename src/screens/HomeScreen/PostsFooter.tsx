@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
 import { View, StyleSheet, Dimensions, Image, Text ,TouchableOpacity} from "react-native";
 const { height, width } = Dimensions.get("window");
@@ -9,19 +9,39 @@ import {
   FontAwesome5,
   Fontisto,
   Feather,
+  Foundation,
 } from "@expo/vector-icons";
-
+import * as Animatable from 'react-native-animatable';
 const PostsFooter: FC = () => {
+  const [liked,setLiked] = useState(false)
   return (
-    <View style={{height:height*0.05,justifyContent:"center"}}>
+    <View style={{ height: height * 0.05 ,justifyContent:"center"}}>
       <View
         style={{ marginLeft: 20, alignItems: "center", flexDirection: "row" }}
       >
-        <TouchableOpacity>
-          <AntDesign name="hearto" size={24} color="black" />
-        </TouchableOpacity>
+        {!liked ? (
+          <Animatable.View animation={"fadeIn"}>
+            <TouchableOpacity
+              onPress={() => {
+                setLiked(!liked);
+              }}
+            >
+              <AntDesign name="hearto" size={24} color="black" />
+            </TouchableOpacity>
+          </Animatable.View>
+        ) : (
+          <Animatable.View animation={"bounceIn"}>
+            <TouchableOpacity
+              onPress={() => {
+                setLiked(!liked);
+              }}
+            >
+              <AntDesign name="heart" size={24} color="red" />
+            </TouchableOpacity>
+          </Animatable.View>
+        )}
         <TouchableOpacity style={{ marginLeft: 20 }}>
-          <Fontisto name="comment" size={24} color="black" />
+          <AntDesign name="message1" size={24} color="black" />
         </TouchableOpacity>
         <TouchableOpacity style={{ marginLeft: 20 }}>
           <Feather name="send" size={24} color="black" />

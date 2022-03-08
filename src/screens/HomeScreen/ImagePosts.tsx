@@ -49,6 +49,7 @@ const ImagePosts: FC<PostProps> = ({ item }) => {
     <View style={styles.container}>
       <PostHeader item={item} />
       <FlatList
+      
         viewabilityConfig={{
           itemVisiblePercentThreshold: 90,
         }}
@@ -91,9 +92,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: height * 0.07,
     right: 20,
-    backgroundColor: "#000",
-    height: height * 0.025,
-    borderRadius: 10,
+    backgroundColor: "#333",
+    height: height * 0.03,
+    borderRadius: 15,
     width: width * 0.1,
     alignItems: "center",
     justifyContent: "center",
