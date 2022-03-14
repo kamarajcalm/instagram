@@ -1,4 +1,4 @@
-import React, { FC, RefObject, useState } from "react";
+import React, { FC, useState } from "react";
 import {
   View,
   Text,
@@ -22,15 +22,19 @@ import {
 } from "@expo/vector-icons";
 import PostHeader from "./PostHeader";
 import PostsFooter from "./PostsFooter";
+import { HomeStackParamList } from "../../Navigation/types";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+
 interface PostProps {
   item: {
     userImage: string;
     userName: string;
     Images: string[];
   };
+
 }
 const ImagePosts: FC<PostProps> = ({ item }) => {
-  const [currentItem, setCurrentItem] = useState(null);
+  const [currentItem, setCurrentItem] = useState(0);
   const onViewableItemsChanged = React.useCallback(
     (info: { viewableItems: any }): void => {
       const { viewableItems } = info;
@@ -49,7 +53,6 @@ const ImagePosts: FC<PostProps> = ({ item }) => {
     <View style={styles.container}>
       <PostHeader item={item} />
       <FlatList
-      
         viewabilityConfig={{
           itemVisiblePercentThreshold: 90,
         }}
@@ -69,11 +72,11 @@ const ImagePosts: FC<PostProps> = ({ item }) => {
       />
 
       <View style={styles.indicator}>
-        <Text style={{ color: "#fff" ,fontSize:12,elevation:5}}>
+        <Text style={{ color: "#fff", fontSize: 12, elevation: 5 }}>
           {currentItem}/{item.Images.length}
         </Text>
       </View>
-      <PostsFooter />
+      <PostsFooter total={item.Images.length} activeIndex={currentItem} />
     </View>
   );
 };
@@ -90,7 +93,7 @@ const styles = StyleSheet.create({
   },
   indicator: {
     position: "absolute",
-    top: height * 0.07,
+    top: height * 0.1,
     right: 20,
     backgroundColor: "#333",
     height: height * 0.03,

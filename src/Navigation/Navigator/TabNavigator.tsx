@@ -4,7 +4,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeStack from '../stacks/HomeStack';
  import { Foundation ,Ionicons} from "@expo/vector-icons";
 import ProfileStack from '../stacks/ProfileStack';
-const Tab = createBottomTabNavigator();
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList, TabNavigatorParamList } from '../types';
+type Props = NativeStackScreenProps<RootStackParamList, "TabNavigator">;
+const Tab = createBottomTabNavigator<TabNavigatorParamList>();
 const TabNavigator:FC = ()=>{
   return (
     <Tab.Navigator>

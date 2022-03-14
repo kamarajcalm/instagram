@@ -6,7 +6,13 @@ export const dumyData = [
         Images:[
             "https://i01.appmifile.com/webfile/globalimg/in/cms/C084F2A5-D3CE-B4F6-1A22-18D8F26397A0.jpg",
             "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-9-2.jpg",
-            "https://www.gizmochina.com/wp-content/uploads/2018/12/Xiaomi-Mi-Play.jpg"
+            "https://www.gizmochina.com/wp-content/uploads/2018/12/Xiaomi-Mi-Play.jpg",
+            "https://i01.appmifile.com/webfile/globalimg/in/cms/C084F2A5-D3CE-B4F6-1A22-18D8F26397A0.jpg",
+            "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-9-2.jpg",
+            "https://www.gizmochina.com/wp-content/uploads/2018/12/Xiaomi-Mi-Play.jpg",
+            "https://i01.appmifile.com/webfile/globalimg/in/cms/C084F2A5-D3CE-B4F6-1A22-18D8F26397A0.jpg",
+            "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-9-2.jpg",
+            "https://www.gizmochina.com/wp-content/uploads/2018/12/Xiaomi-Mi-Play.jpg",
         ],
         video:""
     },

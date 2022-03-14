@@ -40,12 +40,14 @@ const PostHeader:FC<PostHeaderProps> = ({item})=>{
 }
 const styles = StyleSheet.create({
   head: {
-    height: height * 0.05,
+    height: height * 0.07,
     backgroundColor: "#fff",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 20,
+    borderBottomWidth:1,
+    borderColor:"#fafafa"
   },
   headImage: {
     height: 30,

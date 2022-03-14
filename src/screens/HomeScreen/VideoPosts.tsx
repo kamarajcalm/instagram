@@ -103,7 +103,10 @@ const VideoPosts: FC<VideoProps> = ({ item,currentItem,index,focus }) => {
           </Text>
         </View>
       </View>
-      <PostsFooter />
+      <PostsFooter 
+         total={0}
+         activeIndex={0}
+      />
     </View>
   );
 };
